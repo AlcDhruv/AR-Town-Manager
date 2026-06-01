@@ -1,4 +1,5 @@
-**/node_modules
+**/node_modules/
+**/src/generated/assets/
 src/generated/
 dist/
 include/draco/
@@ -9,3 +10,8 @@ include/three-mesh-ui-assets/
 include/fonts/
 build.log
 .DS_Store
+
+# Standard Unity blocks
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
