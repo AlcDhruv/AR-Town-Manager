@@ -1,0 +1,16 @@
+{
+  "gzip": false,
+  "generator": "Unity 2022.3.62f3, Needle Engine Integration @5.0.10",
+  "license": {
+    "team": "org_fu8mfx4gjv91"
+  },
+  "allowHotReload": true,
+  "developmentBuild": false,
+  "facebookInstantGames": null,
+  "useRapier": true,
+  "needleEditor": null,
+  "sceneName": "Main Scene",
+  "meta": null,
+  "absolutePath": "https://localhost:3000",
+  "deployOnly": false
+}
