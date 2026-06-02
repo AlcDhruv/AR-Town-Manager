@@ -1,31 +1,42 @@
 import { Behaviour, serializable, GameObject } from "@needle-tools/engine";
 import { PrefabRotator } from "./PrefabRotator";
+import { UIManager } from "./UIManager";
 
 export class ShowcaseToggler extends Behaviour {
 
     @serializable(GameObject)
     public showcaseObject?: GameObject;
 
-    private static currentActive: any = null;
+    public static currentActiveToggler: ShowcaseToggler | null = null;
 
     onPointerClick() {
         if (!this.showcaseObject) return;
+        this.toggleShowcase(true);
+    }
 
+    public toggleShowcase(state: boolean) {
+        if (!this.showcaseObject) return;
         const nativeTarget = (this.showcaseObject as any).gameObject || this.showcaseObject;
 
-        if (ShowcaseToggler.currentActive && ShowcaseToggler.currentActive !== nativeTarget) {
-            ShowcaseToggler.currentActive.visible = false;
+        if (state && ShowcaseToggler.currentActiveToggler && ShowcaseToggler.currentActiveToggler !== this) {
+            ShowcaseToggler.currentActiveToggler.toggleShowcase(false);
         }
 
-        nativeTarget.visible = !nativeTarget.visible;
+        nativeTarget.visible = state;
 
-        if (nativeTarget.visible) {
-            ShowcaseToggler.currentActive = nativeTarget;
-            PrefabRotator.isAnyPrefabActive = true; // Engage the background input blocker
+        if (state) {
+            ShowcaseToggler.currentActiveToggler = this;
+            PrefabRotator.isAnyPrefabActive = true;
+
+            // Talk to the active UIManager to wake up the hidden canvas
+            const rotatorScript = this.showcaseObject.getComponent(PrefabRotator);
+            if (rotatorScript && UIManager.instance) {
+                UIManager.instance.showUI(rotatorScript.assetDescription);
+            }
         } else {
-            if (ShowcaseToggler.currentActive === nativeTarget) {
-                ShowcaseToggler.currentActive = null;
-                PrefabRotator.isAnyPrefabActive = false; // Disengage the lock
+            if (ShowcaseToggler.currentActiveToggler === this) {
+                ShowcaseToggler.currentActiveToggler = null;
+                PrefabRotator.isAnyPrefabActive = false;
             }
         }
     }
