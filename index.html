@@ -20,18 +20,21 @@
 <body>
   <script type="module" src="./src/generated/gen.js"></script>
   <script type="module" src="./src/main.ts"></script>
-  <needle-engine></needle-engine>
-  <div id="global-showcase-ui" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; font-family: sans-serif; z-index: 9999;">
-    
-    <div style="position: absolute; top: 20px; right: 20px; display: flex; gap: 12px; pointer-events: auto;">
-        <button id="ui-info-btn" style="padding: 10px 20px; background: white; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; cursor: pointer;">Info</button>
-        <button id="ui-close-btn" style="padding: 10px 20px; background: white; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; cursor: pointer;">Close</button>
-    </div>
+  
+  <needle-engine>
+    <div id="global-showcase-ui" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; font-family: sans-serif; z-index: 9999;">
+      
+      <div style="position: absolute; top: 20px; right: 20px; display: flex; gap: 12px; pointer-events: auto;">
+          <button id="ui-info-btn" style="padding: 10px 20px; background: white; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; cursor: pointer;">Info</button>
+          <button id="ui-close-btn" style="padding: 10px 20px; background: white; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; cursor: pointer;">Close</button>
+      </div>
 
-    <div id="ui-description-card" style="display: none; position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: auto; text-align: center;">
-        <h3 style="margin-top: 0; color: #333;">Asset Description</h3>
-        <p id="ui-description-text" style="color: #666; margin-bottom: 0; font-size: 16px; line-height: 1.4;">Specifications load here...</p>
+      <div id="ui-description-card" style="display: none; position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: auto; text-align: center;">
+          <h3 style="margin-top: 0; color: #333;">Asset Description</h3>
+          <p id="ui-description-text" style="color: #666; margin-bottom: 0; font-size: 16px; line-height: 1.4;">Specifications load here...</p>
+      </div>
     </div>
-</div>
+  </needle-engine>
+
 </body>
 </html>

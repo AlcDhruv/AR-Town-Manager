@@ -14,3 +14,18 @@ needle-engine {
     width: 100%;
     height: 100%;
 }
+
+/* When AR is active, make sure our custom showcase UI container is forced visible */
+.ar-session-active #global-showcase-ui {
+    display: block !important;
+}
+
+/* Ensure the overlay background stays completely transparent so you can see the camera feed */
+#global-showcase-ui {
+    background: transparent !important;
+    pointer-events: none;
+}
+
+#global-showcase-ui button {
+    pointer-events: auto;
+}
